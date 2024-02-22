@@ -2,10 +2,13 @@
 //'w' to move it forward
 
 // I hate comments on p5js editor
+// Looks significantly less distracting on vscode :)
 
 let robot
 let scoreButton
 let floorPlan
+
+let matrix = [];
 
 function setup() {
   createCanvas(800, 600);
@@ -14,7 +17,18 @@ function setup() {
   floorPlan.createObstacles()
   
   scoreButton = createButton('check score')
-  scoreButton.mousePressed(tabulate)
+  scoreButton.mousePressed(tabulate);
+
+  // TODO: implement matrix
+  for (let i=0, n=width/20; i<width; i+=n) {
+    let r = [];
+    for (let j=0, m=height/20; j<height; j+=m) {
+      r.push(0);
+    }
+    matrix.push(r);
+  }
+
+  print(matrix);
 }
 
 function draw() {
@@ -27,6 +41,15 @@ function draw() {
   if(frameCount == 60*60*2){
     createP('done!')
     noLoop() 
+  }
+}
+
+// useless function honestly
+function printMatrix() {
+  for (let i=0, n=width/20; i<width/n; i++) {
+    for (let j=0, m=height/20; j<height/m; j++) {
+      print(matrix[i][j]);
+    }
   }
 }
 
