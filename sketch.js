@@ -19,10 +19,10 @@ function setup() {
   scoreButton = createButton('check score')
   scoreButton.mousePressed(tabulate);
 
-  // TODO: implement matrix
-  for (let i=0, n=width/20; i<width; i+=n) {
+  // Matrix of field in blocks of 50x50
+  for (let i=0; i<width; i+=50) {
     let r = [];
-    for (let j=0, m=height/20; j<height; j+=m) {
+    for (let j=0; j<height; j+=50) {
       r.push(0);
     }
     matrix.push(r);
