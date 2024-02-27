@@ -9,6 +9,7 @@ let scoreButton
 let floorPlan
 
 let matrix = [];
+let walls = [];
 
 function setup() {
   createCanvas(800, 600);
@@ -29,6 +30,9 @@ function setup() {
   }
 
   print(matrix);
+//  print(floorPlan.obstacles);
+
+  makeWalls(floorPlan.obstacles);
 }
 
 function draw() {
@@ -50,6 +54,13 @@ function printMatrix() {
     for (let j=0, m=height/20; j<height/m; j++) {
       print(matrix[i][j]);
     }
+  }
+}
+
+function makeWalls(obstacles) {
+  for (int i=0; i<obstacles.length; i++) {
+    let ob = obstacles[i]
+    walls.push(new Wall(ob.x-ob.w/2, ob.y-ob.h/2, ob.w, ob.h));
   }
 }
 
