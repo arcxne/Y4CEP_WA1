@@ -57,8 +57,9 @@ function printMatrix() {
   }
 }
 
+// grab the obstacles and make them into walls (assuming all rectangles)
 function makeWalls(obstacles) {
-  for (int i=0; i<obstacles.length; i++) {
+  for (let i=0; i<obstacles.length; i++) {
     let ob = obstacles[i]
     walls.push(new Wall(ob.x-ob.w/2, ob.y-ob.h/2, ob.w, ob.h));
   }
