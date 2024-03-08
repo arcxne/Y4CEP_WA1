@@ -6,7 +6,8 @@ class Wall {
 
   // Display the wall
   show() {
-    stroke(0); // Set stroke color to black
+    stroke(0, 0, 255); // Set stroke color to black
+    strokeWeight(1);
     line(this.a.x, this.a.y, this.b.x, this.b.y);
   }
 }
